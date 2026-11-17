@@ -1,0 +1,72 @@
+{
+    "name": "jeffersongoncalves/laravel-gdpr-vendors",
+    "description": "GDPR vendor register for Laravel: processors and controllers you share personal data with, Art. 28(3) contract checklist, Chapter V transfer mechanism for vendors outside the EEA, risk-based reviews and data return.",
+    "keywords": [
+        "laravel",
+        "gdpr",
+        "vendors",
+        "processors",
+        "dpa",
+        "data-processing-agreement",
+        "international-transfer",
+        "privacy"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-gdpr-vendors",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\GdprVendors\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\GdprVendors\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\GdprVendors\\GdprVendorsServiceProvider"
+            ],
+            "aliases": {
+                "GdprVendors": "JeffersonGoncalves\\GdprVendors\\Facades\\GdprVendors"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
