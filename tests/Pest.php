@@ -1,3 +1,5 @@
 <?php
 
-uses(JeffersonGoncalves\GdprVendors\Tests\TestCase::class)->in('Feature', 'Unit');
+use JeffersonGoncalves\GdprVendors\Tests\TestCase;
+
+uses(TestCase::class)->in('Feature', 'Unit');

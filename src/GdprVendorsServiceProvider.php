@@ -2,6 +2,7 @@
 
 namespace JeffersonGoncalves\GdprVendors;
 
+use JeffersonGoncalves\GdprVendors\Commands\VendorsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -10,9 +11,9 @@ class GdprVendorsServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('laravel-gdpr-vendors')
+            ->name('gdpr-vendors')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigrations();
+            ->hasMigrations(['create_gdpr_vendors_table'])
+            ->hasCommand(VendorsCommand::class);
     }
 }
